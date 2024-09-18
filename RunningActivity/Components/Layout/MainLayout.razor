@@ -1,20 +1,34 @@
 ﻿@inherits LayoutComponentBase
 
-<div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
-
-    <main>
-        <div class="top-row px-4">
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
+<main class="main" id="top">
+    <nav class="navbar navbar-top fixed-top navbar-expand-lg" id="navbarTop">
+        <div class="navbar-logo" style="min-width: 128px">
+            <button class="btn navbar-toggler navbar-toggler-humburger-icon hover-bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTopCollapse" aria-controls="navbarTopCollapse" aria-expanded="false" aria-label="Toggle Navigation"><span class="navbar-toggle-icon"><span class="toggle-line"></span></span></button>
+            <a class="navbar-brand" href="/">
+                <div class="d-flex align-items-center">
+                    <div class="d-flex align-items-center">
+                        <h5 class="logo-text">姗姗跑步</h5>
+                    </div>
+                </div>
+            </a>
         </div>
-
-        <article class="content px-4">
-            @Body
-        </article>
-    </main>
-</div>
+        <div class="collapse navbar-collapse navbar-top-collapse order-1 order-lg-0 justify-content-center" id="navbarTopCollapse">
+            <ul class="navbar-nav navbar-nav-top">
+                <li class="nav-item">
+                    <a class="nav-link lh-1" href="/" role="button"><span class="uil fs-8 me-2 uil-analytics"></span>里程</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link lh-1" href="/photos" role="button"><span class="uil fs-8 me-2 uil-image"></span>晒图</a>
+                </li>
+            </ul>
+        </div>
+        <ul class="navbar-nav navbar-nav-icons flex-row" style="min-width: 128px">
+        </ul>
+    </nav>
+    <div class="content">
+        @Body
+    </div>
+</main>
 
 <div id="blazor-error-ui">
     An unhandled error has occurred.
