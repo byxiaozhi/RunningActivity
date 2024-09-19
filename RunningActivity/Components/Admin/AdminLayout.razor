@@ -1,0 +1,38 @@
+﻿@inherits LayoutComponentBase
+@layout Components.MainLayout
+
+<nav class="navbar navbar-vertical navbar-expand-lg">
+    <div class="navbar-collapse collapse" id="navbarVerticalCollapse">
+        <div class="navbar-vertical-content">
+            <ul class="navbar-nav flex-column" id="navbarVerticalNav">
+                @foreach (var item in menuItems)
+                {
+                    <li class="nav-item">
+                        <NavLink class="nav-link" href="@item.Url">
+                            <div class="d-flex align-items-center">
+                                <span class="nav-link-icon @item.Icon" />
+                                <span class="nav-link-text">@item.Name</span>
+                            </div>
+                        </NavLink>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<TopNavbar HasVerticalNavbar="true" />
+
+<div class="content">
+    @Body
+</div>
+
+@code {
+    record MenuItem(string Name, string Icon, string Url);
+
+    List<MenuItem> menuItems = [
+        new("成员管理", "uil-users-alt", "/admin/member"), 
+        new("数据管理", "uil-database", "/admin/data"), 
+        new("通用设置", "uil-setting", "/admin/settings")
+    ];
+}
