@@ -3,18 +3,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RunningActivity.Models
 {
-    public class Member
+    public class Photo
     {
         [Key]
         public Guid Id { get; set; }
 
-        public string Name { get; set; } = string.Empty;
-
-        public string Notes { get; set; } = string.Empty;
-
-        public LocalFile? Avatar { get; set; }
-
-        public List<RunningRecord> RunningRecords { get; set; } = [];
+        public LocalFile? File { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public DateTime Inserted { get; set; }

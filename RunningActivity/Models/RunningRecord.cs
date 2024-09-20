@@ -3,18 +3,20 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RunningActivity.Models
 {
-    public class Member
+    public class RunningRecord
     {
         [Key]
         public Guid Id { get; set; }
 
-        public string Name { get; set; } = string.Empty;
+        public Member? Member { get; set; }
 
-        public string Notes { get; set; } = string.Empty;
+        public DateTime RecordDate { get; set; }
 
-        public LocalFile? Avatar { get; set; }
+        public double Distance { get; set; }
 
-        public List<RunningRecord> RunningRecords { get; set; } = [];
+        public TimeSpan Duration { get; set; }
+
+        public double AverageSpeed { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public DateTime Inserted { get; set; }
